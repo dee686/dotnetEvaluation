@@ -1,0 +1,127 @@
+ StockPortfolio Class (Track Multiple Stocks)
+
+
+ using System;
+using System.Collections.Generic;
+
+public class StockPortfolio
+{
+    private Dictionary<string, double> stocks;
+
+    public StockPortfolio()
+    {
+        stocks = new Dictionary<string, double>();
+    }
+
+    public void AddStock(string stockSymbol, double stockValue)
+    {
+        if (stocks.ContainsKey(stockSymbol))
+        {
+            stocks[stockSymbol] = stockValue;
+        }
+        else
+        {
+            stocks.Add(stockSymbol, stockValue);
+        }
+    }
+
+    public void RemoveStock(string stockSymbol)
+    {
+        if (stocks.ContainsKey(stockSymbol))
+        {
+            stocks.Remove(stockSymbol);
+        }
+        else
+        {
+            Console.WriteLine("Stock not found.");
+        }
+    }
+
+    public double CalculateTotalPortfolioValue()
+    {
+        double totalValue = 0;
+        foreach (var stock in stocks)
+        {
+            totalValue += stock.Value;
+        }
+        return totalValue;
+    }
+
+    public void DisplayPortfolio()
+    {
+        foreach (var stock in stocks)
+        {
+            Console.WriteLine($"Stock: {stock.Key}, Value: {stock.Value}");
+        }
+    }
+
+    public static void Main()
+    {
+        StockPortfolio portfolio = new StockPortfolio();
+        portfolio.AddStock("AAPL", 150.0);
+        portfolio.AddStock("GOOG", 2800.0);
+        portfolio.DisplayPortfolio();
+        Console.WriteLine($"Total Portfolio Value: {portfolio.CalculateTotalPortfolioValue()}");
+    }
+}
+
+
+
+2> using System;
+using System.Collections.Generic;
+
+public class SmartHomeSystem
+{
+    private List<string> devices;
+
+    public SmartHomeSystem()
+    {
+        devices = new List<string>();
+    }
+
+    public void AddDevice(string deviceName)
+    {
+        if (!devices.Contains(deviceName))
+        {
+            devices.Add(deviceName);
+            Console.WriteLine($"Device {deviceName} added.");
+        }
+        else
+        {
+            Console.WriteLine("Device already exists.");
+        }
+    }
+
+    public void RemoveDevice(string deviceName)
+    {
+        if (devices.Contains(deviceName))
+        {
+            devices.Remove(deviceName);
+            Console.WriteLine($"Device {deviceName} removed.");
+        }
+        else
+        {
+            Console.WriteLine("Device not found.");
+        }
+    }
+
+    public void TurnOnOffAllDevices(bool turnOn)
+    {
+        string action = turnOn ? "on" : "off";
+        foreach (var device in devices)
+        {
+            Console.WriteLine($"Turning {action} {device}");
+        }
+    }
+
+    public static void Main()
+    {
+        SmartHomeSystem home = new SmartHomeSystem();
+        home.AddDevice("Smart Light");
+        home.AddDevice("Thermostat");
+        home.TurnOnOffAllDevices(true);
+        home.RemoveDevice("Thermostat");
+    }
+}
+
+

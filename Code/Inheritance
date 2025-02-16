@@ -1,0 +1,108 @@
+1. MultiLevelBankingSystem (CentralBank → NationalBank → LocalBank)
+
+using System;
+
+public class CentralBank
+{
+    public virtual void InterestRate()
+    {
+        Console.WriteLine("CentralBank Interest Rate: 5%");
+    }
+}
+
+public class NationalBank : CentralBank
+{
+    public override void InterestRate()
+    {
+        Console.WriteLine("NationalBank Interest Rate: 4%");
+    }
+}
+
+public class LocalBank : NationalBank
+{
+    public override void InterestRate()
+    {
+        Console.WriteLine("LocalBank Interest Rate: 3.5%");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        CentralBank centralBank = new CentralBank();
+        centralBank.InterestRate();
+
+        NationalBank nationalBank = new NationalBank();
+        nationalBank.InterestRate();
+
+        LocalBank localBank = new LocalBank();
+        localBank.InterestRate();
+    }
+}
+
+
+2. SmartVehicle Hierarchy (Vehicle → Electric/Gas → SelfDrivingCar/HybridCar)
+
+using System;
+
+public class Vehicle
+{
+    public virtual void Drive()
+    {
+        Console.WriteLine("Driving a vehicle...");
+    }
+}
+
+public class ElectricCar : Vehicle
+{
+    public override void Drive()
+    {
+        Console.WriteLine("Driving an electric car...");
+    }
+}
+
+public class GasCar : Vehicle
+{
+    public override void Drive()
+    {
+        Console.WriteLine("Driving a gas-powered car...");
+    }
+}
+
+public class SelfDrivingCar : ElectricCar
+{
+    public override void Drive()
+    {
+        Console.WriteLine("Self-driving electric car in action...");
+    }
+}
+
+public class HybridCar : ElectricCar
+{
+    public override void Drive()
+    {
+        Console.WriteLine("Driving a hybrid car...");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Vehicle vehicle = new Vehicle();
+        vehicle.Drive();
+
+        ElectricCar electricCar = new ElectricCar();
+        electricCar.Drive();
+
+        GasCar gasCar = new GasCar();
+        gasCar.Drive();
+
+        SelfDrivingCar selfDrivingCar = new SelfDrivingCar();
+        selfDrivingCar.Drive();
+
+        HybridCar hybridCar = new HybridCar();
+        hybridCar.Drive();
+    }
+}

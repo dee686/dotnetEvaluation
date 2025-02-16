@@ -1,0 +1,98 @@
+1>ExpressionEvaluator Class (Operator Overloading)
+
+using System;
+
+public class ExpressionEvaluator
+{
+    public double Value { get; set; }
+
+    public ExpressionEvaluator(double value)
+    {
+        Value = value;
+    }
+
+    
+    public static ExpressionEvaluator operator +(ExpressionEvaluator e1, ExpressionEvaluator e2)
+    {
+        return new ExpressionEvaluator(e1.Value + e2.Value);
+    }
+
+    
+    public static ExpressionEvaluator operator -(ExpressionEvaluator e1, ExpressionEvaluator e2)
+    {
+        return new ExpressionEvaluator(e1.Value - e2.Value);
+    }
+
+    
+    public static ExpressionEvaluator operator *(ExpressionEvaluator e1, ExpressionEvaluator e2)
+    {
+        return new ExpressionEvaluator(e1.Value * e2.Value);
+    }
+
+    
+    public static ExpressionEvaluator operator /(ExpressionEvaluator e1, ExpressionEvaluator e2)
+    {
+        if (e2.Value == 0) throw new DivideByZeroException();
+        return new ExpressionEvaluator(e1.Value / e2.Value);
+    }
+
+    public static void Main()
+    {
+        ExpressionEvaluator num1 = new ExpressionEvaluator(10);
+        ExpressionEvaluator num2 = new ExpressionEvaluator(5);
+        ExpressionEvaluator result = num1 + num2; 
+        Console.WriteLine($"Result of addition: {result.Value}");
+        
+        result = num1 - num2; 
+        Console.WriteLine($"Result of subtraction: {result.Value}");
+    }
+}
+
+
+4> AIModel Class with Multiple Versions (TrainModel Method)
+
+using System;
+
+public abstract class AIModel
+{
+    public abstract void TrainModel();
+}
+
+public class BasicAI : AIModel
+{
+    public override void TrainModel()
+    {
+        Console.WriteLine("Training Basic AI model...");
+    }
+}
+
+public class NeuralNet : AIModel
+{
+    public override void TrainModel()
+    {
+        Console.WriteLine("Training Neural Network model...");
+    }
+}
+
+public class DeepLearning : AIModel
+{
+    public override void TrainModel()
+    {
+        Console.WriteLine("Training Deep Learning model...");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        AIModel basicAI = new BasicAI();
+        basicAI.TrainModel();
+
+        AIModel neuralNet = new NeuralNet();
+        neuralNet.TrainModel();
+
+        AIModel deepLearning = new DeepLearning();
+        deepLearning.TrainModel();
+    }
+}

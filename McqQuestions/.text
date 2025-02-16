@@ -1,1 +1,24 @@
 Coding
+
+1. Which of the following is the correct syntax to define a class in C#?
+Answer: a class MyClass { }
+
+2. What is the default access modifier for members of a class in C#?
+Answer: b private
+
+3.  Which of the following is true about constructors in C#?
+ Answer: b A constructor can have the same name as the class.
+
+4. Answer :c 5
+
+5. Answer: b It is used to access the instance members of the current object.
+
+6. Answer: b public int x { get; set; }
+
+7. Answer: a Compilation error
+
+8. 
+
+9. Answers: Static functions of a class never receive the this reference.
+
+10.Answers: Sample s = new Sample();
